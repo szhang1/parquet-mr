@@ -132,7 +132,7 @@
             </goals>
             <configuration>
               <sources>
-                <source>${project.build.directory}/generated-test-sources</source>
+                <source>${project.build.directory}/generated-test-sources/java</source>
               </sources>
             </configuration>
           </execution>
