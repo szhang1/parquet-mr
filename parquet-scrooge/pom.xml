@@ -229,6 +229,28 @@
             </executions>
         </plugin>
         <!--end for scrooge and thrift-->
+
+      <plugin>
+        <!-- Ensure that the specific classes are available during test compile but not included in jar -->
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>build-helper-maven-plugin</artifactId>
+        <version>1.8</version>
+        <executions>
+          <execution>
+            <id>add-test-sources</id>
+            <phase>generate-test-sources</phase>
+            <goals>
+              <goal>add-test-source</goal>
+            </goals>
+            <configuration>
+              <sources>
+                <source>${project.build.directory}/generated-test-sources/scrooge/scrooge</source>
+                <source>${project.build.directory}/generated-test-sources/thrift</source>
+              </sources>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
     </plugins>
   </build>
 </project>
